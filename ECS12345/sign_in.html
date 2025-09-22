@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EnerGenius</title>
+    <link rel="icon" type="image/png" href="EG logo.jpg">
+    <style>
+        /* CSS Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signin-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 60px; /* Increased padding */
+            width: 100%;
+            max-width: 600px; /* Increased max width */
+            text-align: center;
+        }
+
+        /* Navbar styling */
+        nav {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav img {
+            height: 60px; /* Increased logo size */
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Increased font size */
+            color: #005b96;
+            margin-bottom: 15px; /* Increased margin */
+        }
+
+        p {
+            font-size: 1.1em; /* Increased font size */
+            color: #666;
+            margin-bottom: 25px; /* Increased margin */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            margin-bottom: 8px; /* Increased margin */
+            font-size: 1.1em; /* Increased font size */
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 15px; /* Increased padding */
+            margin-bottom: 20px; /* Increased margin */
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Increased border-radius */
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        button {
+            background-color: #005b96;
+            color: white;
+            padding: 15px; /* Increased padding */
+            border: none;
+            border-radius: 8px; /* Increased border-radius */
+            font-size: 1.3em; /* Increased font size */
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00427b;
+        }
+
+        .footer-text {
+            font-size: 1em; /* Increased font size */
+            color: #aaa;
+            margin-top: 25px; /* Increased margin */
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 25px; /* Increased margin */
+            font-size: 1.1em; /* Increased font size */
+            display: none;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 1em; /* Increased font size */
+            margin-bottom: 20px; /* Increased margin */
+            display: none;
+        }
+
+        .loading-icon {
+            display: none;
+            margin-top: 25px; /* Increased margin */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar with logo -->
+    <nav>
+        <img src="EnerGenius.jpg" alt="EnerGenius Logo">
+        <strong></strong>
+    </nav>
+
+    <!-- Sign-in container -->
+    <div class="signin-container">
+        <h1>Sign Up</h1>
+        <p>Create an EnerGenius account</p>
+
+        <form id="signupForm" onsubmit="return validateForm()">
+            <label for="username">Username (Email)</label>
+            <input type="text" id="username" name="username" required>
+            <p class="error-message" id="usernameError">Please enter a valid email address.</p>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <p class="error-message" id="passwordError">Password must be at least 8 characters long.</p>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <p class="success-message" id="successMessage">Account created successfully! Redirecting...</p>
+        <div class="loading-icon" id="loadingIcon">🔄 Loading...</div>
+        <p class="footer-text">© 2024 EnerGenius</p>
+    </div>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            const successMessage = document.getElementById('successMessage');
+            const loadingIcon = document.getElementById('loadingIcon');
+
+            let isValid = true;
+
+            // Email validation regex
+            const emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+            // Validate email
+            if (!emailPattern.test(username)) {
+                usernameError.style.display = 'block';
+                isValid = false;
+            } else {
+                usernameError.style.display = 'none';
+            }
+
+            // Validate password length
+            if (password.length < 8) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            // If form is valid, show success message, loading icon, and redirect
+            if (isValid) {
+                successMessage.style.display = 'block';
+                loadingIcon.style.display = 'block';
+
+                // Delay for 5 seconds before redirecting
+                setTimeout(() => {
+                    window.location.href = "index.html"; // Replace with the correct homepage URL
+                }, 5000);
+
+                return false; // Prevents actual form submission for demonstration
+            } else {
+                successMessage.style.display = 'none';
+                loadingIcon.style.display = 'none';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

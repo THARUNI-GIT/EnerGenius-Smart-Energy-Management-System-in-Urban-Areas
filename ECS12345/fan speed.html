@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Control Panel</title>
+    <link rel="icon" type="image/png" href="EG logo.jpg">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: url('smart.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .header {
+            background: #003d80; /* Cool solid navy-blue */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* EnerGenius logo at the top left */
+        .main-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 40px; /* Adjusted gap */
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6); /* Darker for better contrast */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            width: 300px; /* Increased width */
+            padding: 25px; /* Increased padding */
+            margin: 10px;
+            text-align: center;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Slight lift on hover */
+        }
+
+        .card h2 {
+            color: #ffffff;
+            font-size: 24px; /* Increased font size */
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Adding Popping Effect */
+        .pop {
+            font-size: 30px; /* Increased font size */
+            animation: pop 2s infinite;
+        }
+
+        /* Animation Keyframes */
+        @keyframes pop {
+            0%, 100% {
+                transform: scale(1);
+                color: #fff;
+            }
+            50% {
+                transform: scale(1.2);
+                color: #00d1ff; /* Pop color */
+            }
+        }
+
+        button {
+            background: #003d80; /* Solid navy-blue */
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #0056b3;
+        }
+
+        footer {
+            background: #003d80; /* Consistent navy-blue */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 80%;
+            }
+            button {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- EnerGenius Logo at the top left corner -->
+    <div class="header">
+        <img src="EnerGenius.jpg" alt="EnerGenius Logo" class="main-logo">
+        <h1>Energy Control Panel</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Voltage</h2>
+            <p>Current Voltage: <span id="voltage" class="pop">220V</span></p>
+        </div>
+        <div class="card">
+            <h2>Outside Temperature</h2>
+            <p>Temperature: <span id="outside-temp" class="pop">30°C</span></p>
+        </div>
+        <div class="card">
+            <h2>Inside Temperature</h2>
+            <p>Temperature: <span id="inside-temp" class="pop">24°C</span></p>
+        </div>
+        <div class="card">
+            <h2>Fan Speed Control</h2>
+            <p>Current Speed: <span id="fan-speed-value">50%</span></p>
+            <button onclick="adjustFanSpeed(-10)">-</button>
+            <button onclick="adjustFanSpeed(10)">+</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>@ 2024 EnerGenius</p>
+    </footer>
+
+    <script>
+        let fanSpeed = 50; // Initial fan speed
+
+        function adjustFanSpeed(change) {
+            fanSpeed = Math.min(100, Math.max(50, fanSpeed + change)); // Clamp value between 50 and 100
+            document.getElementById("fan-speed-value").textContent = fanSpeed + "%";
+        }
+
+        // Function to fetch data and update the values
+        function fetchData() {
+            // Placeholder for actual data fetch logic (e.g., from ThingSpeak or other IoT platform)
+            document.getElementById("outside-temp").textContent = "30°C"; // Updated Outside Temperature
+            document.getElementById("inside-temp").textContent = "24°C"; // Updated Inside Temperature
+            document.getElementById("voltage").textContent = "220V"; // Updated Voltage
+        }
+
+        // Fetch data every 5 seconds
+        setInterval(fetchData, 5000);
+    </script>
+</body>
+</html>

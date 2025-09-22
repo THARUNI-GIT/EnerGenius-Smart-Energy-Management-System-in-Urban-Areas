@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About EnerGenius</title>
+    <link rel="icon" type="image/png" href="EG logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        /* Body and background */
+        body {
+            font-family: Arial, sans-serif;
+            background: url("smart.jpg") content-box;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Page container styling */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+        }
+
+        /* Navbar styling */
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav ul li a {
+            padding: 10px 15px;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul li a.active, nav ul li a:hover {
+            border-bottom: 5px solid blue;
+        }
+
+        nav img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        /* Header styling */
+        h1, h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #bbb;
+            border-top: 1px solid #444;
+            margin-top: 40px;
+        }
+
+        /* Brighter text for navigation links */
+        nav ul li a {
+            color: #fff;
+        }
+
+        /* Sign in button styling */
+        nav ul li a[role="button"] {
+            border-radius: 50px;
+            background: #0056b3;
+            padding: 10px 20px;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a[role="button"]:hover {
+            background: #003d80;
+        }
+
+        /* Box styling */
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #000;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 75px;
+            height: 75px;
+            margin-bottom: 10px;
+        }
+
+        /* Category box icons */
+        .category-icon {
+            width: 75%;
+            height: 75%;
+            margin-bottom: 10px;
+        }
+
+        /* Centered content styling */
+        .centered-content {
+            text-align: center;
+            color: #ffffff;
+            font-size: 18px;
+            margin: 40px 0;
+        }
+
+        /* Highlighted quote */
+        .quote-container {
+            text-align: center;
+            font-size: 48px;
+            margin: 40px 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Explore More button styling */
+        .explore-more {
+            display: inline-block;
+            padding: 7px 10px;
+            border-radius: 100px;
+            background: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .explore-more:hover {
+            background: #003d80;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="container-fluid">
+        <ul>
+            <li><img src="EnerGenius.jpg" alt="EnerGenius Logo"><strong></strong></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">Welcome</a></li>
+            <li><a href="about.html" class="active">About EnerGenius</a></li>
+            <li><a href="urban_areas.html">Urban Areas</a></li>
+            <li><a href="sign_in.html" role="button">Sign in</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <h1>EnerGenius</h1>
+        <img src="EG_logo-removebg-preview.png" alt="EnerGenius Image" style="display:grid; margin:auto;width: 25%; height: 10%;">
+        <h2>Empowering Smart Urban Management</h2>
+        <div class="centered-content">
+            <p>EnerGenius is a cutting-edge platform designed to streamline the management of urban areas 
+                through innovative technology. Our goal is to enhance the efficiency, safety, and sustainability 
+                of essential urban zones by providing real-time monitoring and control solutions.</p>
+            <p>With EnerGenius, you can seamlessly manage various sectors such as healthcare, education, retail, 
+                and residential areas. Our platform integrates advanced sensors, smart analytics, and user-friendly 
+                interfaces to deliver actionable insights and automated controls, ensuring optimal performance and energy efficiency.</p>
+        </div>
+
+        <!-- Category Boxes -->
+        <div class="box-container">
+            <div class="box">
+                <img src="climate and energy.webp" alt="Climate and Energy" class="category-icon">
+                <h3>Climate and Energy</h3>
+                <a href="sign_in.html" class="explore-more">Explore more</a>
+            </div>
+            <div class="box">
+                <img src="light and bulb.webp" alt="Lighting and Plugs" class="category-icon">
+                <h3>Lighting and Plugs</h3>
+                <a href="sign_in.html" class="explore-more">Explore more</a>
+            </div>
+            <div class="box">
+                <img src="humidity logo.png" alt="Humidity Control" class="category-icon">
+                <h3>Humidity Control</h3>
+                <a href="sign_in.html" class="explore-more">Explore more</a>
+            </div>
+            <div class="box">
+                <img src="appliances.webp" alt="Appliances" class="category-icon">
+                <h3>Appliances and more</h3>
+                <a href="sign_in.html" class="explore-more">Explore more</a>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="quote-container">
+            <p>"EnerGenius: Revolutionizing Urban Management for a Smarter Future"</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 EnerGenius | <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
